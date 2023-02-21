@@ -1,4 +1,4 @@
-package homework.secondHomework;
+package homework.secondHomework.for_while;
 
 import java.util.Scanner;
 

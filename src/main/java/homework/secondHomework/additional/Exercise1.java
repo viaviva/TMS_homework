@@ -1,4 +1,4 @@
-package homework.secondHomework;
+package homework.secondHomework.additional;
 
 public class Exercise1 {
     public static void main(String[] args) {
