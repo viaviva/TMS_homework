@@ -1,4 +1,4 @@
-package homework.secondHomework.for_while;
+package homework.homework2.for_while;
 
 public class Exercise6 {
     public static void main(String[] args) {

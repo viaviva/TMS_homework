@@ -1,4 +1,4 @@
-package homework.thirdHomework;
+package homework.homework3;
 
 import java.util.Arrays;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package homework.secondHomework.if_else;
+package homework.homework2.if_else;
 
 import java.util.Scanner;
 
