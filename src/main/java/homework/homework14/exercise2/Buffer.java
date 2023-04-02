@@ -1,11 +1,9 @@
 package homework.homework14.exercise2;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Buffer {
-    private static List<Integer> list = new ArrayList<>();
+    private static List<Integer> list = Collections.synchronizedList(new ArrayList<>());
 
     public static List<Integer> getList() {
         return list;
