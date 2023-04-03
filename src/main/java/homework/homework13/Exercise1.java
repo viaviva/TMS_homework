@@ -3,39 +3,31 @@ package homework.homework13;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class Exercise1 {
     public static void main(String[] args) {
         List<Integer> numbers = initArrayList();
         System.out.println(numbers);
 
-        AtomicLong sum = new AtomicLong();
-        long count = numbers.stream()
-                .distinct()
-                .peek(number ->
-                {
-                    if (numbers.indexOf(number) > 6 && numbers.indexOf(number) < 18)
-                    {
-                        if (number % 2 == 0)
-                        {
-                            System.out.println(number);
-                        }
-                    }
-                })
-                .map(number -> number * 2)
+        numbers.stream()
+                .filter(number -> number % 2 == 0 && number >= 6 && number <= 17)
+                .forEach(System.out::println);
+
+        numbers.stream().map(number -> number * 2)
                 .sorted()
-                .peek(number ->
-                {
-                    if (numbers.indexOf(number) < 4)
-                    {
-                        System.out.println(number);
-                    }
-                    sum.addAndGet(number);
-                })
+                .limit(4)
+                .forEach(System.out::println);
+
+        long count = numbers
+                .stream()
                 .count();
+
+        long sum = numbers.stream()
+                .reduce((number, newNumber) -> number + newNumber)
+                .orElse(0);
+
         System.out.println("Count " + count);
-        System.out.println("Average " + sum.get()/count);
+        System.out.println("Average " + sum/count);
     }
 
     private static ArrayList<Integer> initArrayList()

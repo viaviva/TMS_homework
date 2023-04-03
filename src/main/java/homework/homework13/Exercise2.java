@@ -2,29 +2,20 @@ package homework.homework13;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Exercise2 {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         List<String> names = initArrayList();
-        AtomicInteger countOfName = new AtomicInteger();
+
+        long countOfName = names.stream()
+                        .filter(name -> name.equalsIgnoreCase("sasha"))
+                        .count();
 
         String firstName = names.stream()
-                .peek(name ->
-                {
-                    if (name.equalsIgnoreCase("sasha"))
-                    {
-                        countOfName.getAndIncrement();
-                    }
-                })
-                .peek(name ->
-                {
-                    if (name.toLowerCase().startsWith("a"))
-                    {
-                        System.out.println(name);
-                    }
-                })
-                .sorted().findFirst().orElse("@Empty");
+                        .filter(name -> name.toLowerCase().startsWith("a"))
+                        .sorted()
+                        .findFirst().orElse("@Empty");
 
         System.out.println(countOfName);
         System.out.println(firstName);
